@@ -66,7 +66,7 @@ def main():
             dockutil('--add', itempath, True)
 
     # Tell dockutil to restart and finally update the dock.
-    dockutilFolder('--add', '/System/Downloads', False, 'name')
+    dockutilFolder('--add', '~/Downloads', False, 'name')
 
 
 if __name__ == '__main__':
