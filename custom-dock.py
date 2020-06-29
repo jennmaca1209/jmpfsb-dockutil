@@ -4,14 +4,16 @@ import os
 import os
 import subprocess
 
+# download dockutil script
 dockpy = 'curl -o /tmp/dockutil "https://raw.githubusercontent.com/kcrawford/dockutil/master/scripts/dockutil"'
-# movefile = 'sudo cp /tmp/dockutil /tmp/'
-chngowner = 'chown root /tmp/dockutil'
-chngperm = 'chmod +x /tmp/dockutil'
-
 os.system(dockpy)
-# os.system(movefile)
+
+# change owner of dockutil
+chngowner = 'chown root /tmp/dockutil'
 os.system(chngowner)
+
+# make dockutil executable
+chngperm = 'chmod +x /tmp/dockutil'
 os.system(chngperm)
 
 def dockutil(type, itempath, norestart):
@@ -49,10 +51,15 @@ def main():
 
     # Add the paths of the items you want to add to the dock here.
     applist = [
-        '/System/Applications/Utilities/Terminal.app',
-        '/Applications/Visual Studio Code.app',
-        '/Applications/VMware Fusion.app',
-        '/Applications/Microsoft Edge.app',
+        "/Applications/Google Chrome.app",
+        "/System/Applications/App Store.app",
+        "/System/Applications/Managed Software Center.app",
+        "/System/Applications/System Preferences.app",
+        "/System/Applications/Utilities/Activity Monitor.app",
+        "/System/Applications/Utilities/Console.app",
+        "/System/Applications/Utilities/Disk Utility.app",
+        "/System/Applications/Utilities/Migration Assistant.app",
+        "/System/Applications/Utilities/Terminal.app",
         ]
     for itempath in applist:
         if os.path.isdir(itempath):
